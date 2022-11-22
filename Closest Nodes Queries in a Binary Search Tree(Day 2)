@@ -1,4 +1,19 @@
- void solve(TreeNode* head,vector<int> &v){
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    
+    
+    void solve(TreeNode* head,vector<int> &v){
         if(head==NULL){
             return;
         }
@@ -23,3 +38,56 @@
             w.push_back({it == begin(v) ? -1 : *prev(it), it == end(v) ? -1 : *it});
     }
     return w;
+//         for(int i=0;i<queries.size();i++){
+//             for(int j=0;j<v.size();j++){
+//                 if(v[0]>queries[i]){
+//                     x.push_back(-1);
+//                     break;
+//                 }
+//                 if(queries[i]==v[j]){
+//                  x.push_back(v[j]);   
+//                     break;
+//                 }
+//                 else if(queries[i]!=v[j]&&queries[i]<v[j]){
+//                     // if(v[j]<queries[])
+//                     x.push_back(v[j-1]);
+//                         break;
+//                 }
+//                 else if(v[v.size()-1]<queries[i]){
+//                     x.push_back(v[v.size()-1]);
+//                     break;
+//                 }
+//             }
+            
+//             for(int k=0;k<v.size();k++){
+//                 if(queries[i]>v[v.size()-1]){
+//                     x.push_back(-1);
+//                     break;
+//                 }
+//                 if(queries[i]==v[k]){
+//                     x.push_back(v[k]);
+//                     break;
+//                 }
+//                 else if(queries[i]!=v[k]&&queries[i]<v[k]){
+//                     x.push_back(v[k]);
+//                     break;
+//                 }
+//             }
+//             w.push_back(x);
+//             x.erase(x.begin(),x.end());
+//         }
+        // for(int i=0;i<v.size();i++){
+        //     if(queries[i]==v[i]){
+        //         x.push_back(queries[i]);
+        //         break;
+        //     }
+        // }
+        // for(int i=0;i<v.size();i++){
+        //     if(queries[i]==v[i]){
+        //         if(x.push)
+        //     }
+        // }
+        // w.push_back(v);
+        // return w;
+    }
+};
