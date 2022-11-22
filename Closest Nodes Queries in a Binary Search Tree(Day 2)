@@ -1,0 +1,25 @@
+ void solve(TreeNode* head,vector<int> &v){
+        if(head==NULL){
+            return;
+        }
+        else{
+            solve(head->left,v);
+        
+           v.push_back(head->val);
+            solve(head->right,v);
+        }
+        
+    }
+    vector<vector<int>> closestNodes(TreeNode* root, vector<int>& queries) {
+        vector<vector<int>> w;
+        vector<int> x;
+        vector<int> v;
+        solve(root,v);
+        for (int q : queries) {
+        auto it = lower_bound(begin(v), end(v), q);
+        if (it != end(v) && *it == q)
+            w.push_back({q, q});
+        else
+            w.push_back({it == begin(v) ? -1 : *prev(it), it == end(v) ? -1 : *it});
+    }
+    return w;
