@@ -1,0 +1,46 @@
+Link->---https://leetcode.com/problems/intersection-of-two-arrays/submissions/
+
+
+class Solution {
+public:
+    vector<vector<int>> findDifference(vector<int>& nums1, vector<int>& nums2) {
+        unordered_set<int> v;
+        vector<vector<int> > vec;
+        unordered_set<int> ss;
+        vector<int> p;
+        for(int i=0;i<nums1.size();i++){
+            v.insert(nums1[i]);
+        }
+        for(int i=0;i<nums2.size();i++){
+            int x=v.size();
+            v.insert(nums2[i]);
+            if(v.size()!=x){
+                ss.insert(nums2[i]);
+                v.erase(v.find(nums2[i]));
+            }
+        }
+        copy(ss.begin(), ss.end(), back_inserter(p));
+        vec.push_back(p);
+        ss.erase(ss.begin(),ss.end());
+        v.erase(v.begin(),v.end());
+        p.erase(p.begin(),p.end());
+        for(int i=0;i<nums2.size();i++){
+            v.insert(nums2[i]);
+        }
+        for(int i=0;i<nums1.size();i++){
+            int x=v.size();
+            v.insert(nums1[i]);
+            if(v.size()!=x){
+                ss.insert(nums1[i]);
+                v.erase(v.find(nums1[i]));
+            }
+        }
+        copy(ss.begin(), ss.end(), back_inserter(p));
+        // vec.push_back(ss);
+        vec.push_back(p);
+        reverse(vec.begin(),vec.end());
+        return vec;
+        
+        // for(int )
+    }
+};
