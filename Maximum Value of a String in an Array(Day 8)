@@ -1,0 +1,30 @@
+Link->-----https://leetcode.com/contest/biweekly-contest-93/problems/maximum-value-of-a-string-in-an-array/
+
+
+class Solution {
+public:
+    int maximumValue(vector<string>& strs) {
+        vector<int> vec;
+        for(int i=0;i<strs.size();i++){
+            int d=0;
+            for(int j=0;j<strs[i].length();j++){
+                if(isdigit(strs[i][j])){
+                    d++;
+                }
+            }
+            if(d==strs[i].length()){
+                stringstream geek(strs[i]);
+                
+                int x=0;
+                    geek >> x;
+
+                vec.push_back(x);
+            }
+            else{
+                vec.push_back(strs[i].length());
+                // for(int )
+            }
+        }
+        return *max_element(vec.begin(),vec.end());
+    }
+};
